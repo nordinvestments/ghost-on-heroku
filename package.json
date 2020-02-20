@@ -23,7 +23,8 @@
     "vapor": "github:sethlilly/Vapor#v1.6.0",
     "pico": "github:tryghost/pico",
     "lyra": "github:tryghost/lyra",
-    "liebling": "github:snathjr/liebling"
+    "liebling": "github:snathjr/liebling",
+    "nord": "./content/themes/NORD/"
   },
   "engines": {
     "node": "10.X"
