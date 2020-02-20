@@ -5,5 +5,4 @@ content/data/*.db
 content/logs/
 content/data/ghost-local.db
 
-content/themes/*
 !content/themes/.gitkeep

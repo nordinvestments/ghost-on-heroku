@@ -1,0 +1,858 @@
+/* NORD Blog stylesheet */
+
+/*
+	Contents:
+
+	1. Colors
+	2. Fonts
+	3. General
+	4. Logo
+	5. Navigation
+	6. Button
+	7. Home Hero
+	8. Post
+	9. Post Footer
+	10. Book intro CTA
+	11. Footer
+*/
+
+/* Colors */
+
+/* Gold Color: #DCC0A1  */
+/* Green Color: #00FF96 */
+/* Dark Color: #202031  */
+/* Ebony Color: #28283D */
+/* Purple Color: #4E4ACB */
+
+/* Fonts */
+@font-face {
+  font-family: "Italian Plate No1";
+  src: url("../fonts/ItalianPlateNo1-Regular.eot?") format("eot"), url("..//fonts/ItalianPlateNo1-Regular.woff") format("woff"), url("../fonts/ItalianPlateNo1-Regular.ttf") format("truetype"), url("../fonts/ItalianPlateNo1-Regular.svg#Italian_Plate_No1") format("svg");
+}
+
+@font-face {
+  font-family: "Italian Plate No1 Mono";
+  src: url("../fonts/ItalianPlateNo1Mono-Regular.eot?") format("eot"), url("../fonts/ItalianPlateNo1Mono-Regular.woff") format("woff"), url("../fonts/ItalianPlateNo1Mono-Regular.ttf") format("truetype"), url("../fonts/ItalianPlateNo1Mono-Regular.svg#Italian_Plate_No1_Mono") format("svg");
+}
+
+/* General */
+
+html, body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.centered-axis-x {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+
+.centered-axis-xy {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.full-width {
+	max-width: 100%;
+	width: 100%;
+}
+
+.read-next {
+	margin-top: 0;
+}
+
+.read-next-story.prev .post:before {
+	content: "Læs også";
+}
+
+.read-next-story .post:before {
+	content: "Læs også";
+}
+
+.read-next-story:hover .post:before {
+    color: white;
+    background: transparent;
+    transition: all 0.2s ease;
+}
+
+.read-next-story .post:before, .read-next-story.prev .post:before {
+	border: 0;
+	border-radius: 0;
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 20px;
+	text-transform: none;
+}
+
+.read-next .post h2 {
+	font-family: "Italian Plate No1"
+}
+
+.read-next .post p {
+	font-family: "Source Sans Pro", sans-serif;
+}
+
+.scroll-down {
+	z-index: 1;
+	color: #DCC0A1;
+}
+
+.itunes-podcast-link {
+  width: 100px;
+}
+
+#content .row:nth-child(2) {
+    margin-top: 20px;
+}
+
+/* Logo */
+.blog-logo img {
+	height: 3em;
+}
+
+/* Navigation */
+.main-nav {
+	margin: 0;
+}
+
+.main-nav.overlay {
+	height: 90px;
+	padding-top: 1em;
+	background: none;
+}
+
+.main-nav ul, .main-nav a {
+	display: inline-block;
+}
+
+nav ul {
+	list-style-type: none;
+	float: right;
+}
+
+nav ul li {
+	display: inline-block;
+	overflow: hidden;
+	margin-left: 1.5em;
+	vertical-align: middle;
+}
+
+nav ul li a, nav ul li a:visited {
+	color: #DCC0A1;
+	text-decoration: none;
+	font-family: "Italian Plate No1 Mono";
+	text-transform: uppercase;
+	font-size: 1.25em;
+}
+
+nav ul li a:hover {
+	color: white;
+}
+
+/* Mobile Navigation styles */
+body.mobile-nav-open {
+	position: fixed;
+}
+
+.main-nav-open header#main-header {
+	height: 100vh;
+}
+
+body.mobile-nav-open header#main-header {
+	height: 100vh;
+	width: 100vw;
+}
+
+body.mobile-nav-open nav.main-nav.overlay.clearfix {
+	height: 100vh;
+	width: 100vw;
+	background: #28283D;
+	z-index: 2;
+	text-align: center;
+}
+
+body.mobile-nav-open nav ul {
+	display: block;
+	clear: both;
+	margin: 0 auto;
+	text-align: center;
+	float: none;
+	padding: 0;
+}
+
+aside#navicon {
+	z-index: 3;
+}
+
+body.mobile-nav-open nav li {
+	display: block;
+	padding: 1rem;
+}
+
+body.mobile-nav-open a.button.book-intro {
+	float: none;
+	font-size: 1.4rem;
+}
+
+@media only screen and (max-width: 979px) {
+	.main-header nav ul {
+		display: none;
+	}
+}
+
+@media only screen and (min-width: 980px) {
+	.main-header #navicon {
+		display: none;
+	}
+	.main-header nav {
+		background: none;
+		display: block;
+		position: relative;
+		height: auto;
+		width: auto;
+	}
+	.main-header nav ul {
+		display: block;
+		text-align: left;
+		position: relative;
+		top: 0;
+		left: 0;
+		transform: translate3d(0, 0, 0);
+		margin: auto;
+	}
+	.main-header li {
+		display: inline-block;
+		margin-left: 1.5em;
+	}
+	.main-header li a {
+		opacity: 1 !important;
+		transform: translate3d(0, 0, 0) !important;
+	}
+}
+
+#navicon {
+	position: absolute;
+	top: 0;
+	right: 1em;
+  width: 2em;
+  height: 1em;
+  float: right;
+  margin: 1.5em 0;
+  cursor: pointer;
+}
+#navicon .line {
+	background: #DCC0A1;
+	position: absolute;
+	height: 2px;
+	width: 100%;
+	top: 50%;
+}
+#navicon .line:first-of-type {
+	top: 0%;
+}
+#navicon .line:last-of-type {
+	top: 100%;
+}
+
+
+/* Button */
+.button {
+	border-radius: 3em;
+	display: inline-block;
+	font-family: "Italian Plate No1 Mono", sans-serif;
+	font-size: 1em;
+	font-weight: normal;
+	letter-spacing: .8px;
+	overflow: hidden;
+	padding: .75em 1.5em;
+	text-transform: uppercase;
+	transition: color 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), background 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+	line-height: 20px;
+	text-decoration: none;
+}
+
+.button.button-green {
+	border: 2px solid #00FF96;
+	color: #00FF96;
+}
+
+.button.button-green:hover, .button.button-green.full {
+	background: #00FF96;
+	color: #202031;
+}
+
+.button.button-purple {
+	border: 2px solid #4E4ACB;
+    color: #4E4ACB;
+}
+
+.button.button-purple:hover, .button.button-purple.full {
+	color: white;
+    background: #4E4ACB;
+}
+
+.button.button-green.book-intro {
+	float: right;
+}
+
+/* Home Hero */
+
+.home-template .main-header:after {
+	display: none;
+}
+
+.home-template .main-header-title {
+	position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+}
+
+.home-template .main-header, .tag-template .main-header {
+	background: #4E4ACB no-repeat center center;
+	background-size: 60%;
+	background-position: center;
+	margin-bottom: 50px;
+}
+
+.home-template .main-header .inner {
+	max-width: 800px;
+}
+
+
+@media only screen and (min-width: 980px) {
+	.home-template .main-header {
+		background-size: 30%;
+	}
+}
+
+.home-template .main-header .page-title,
+.home-template .main-header .page-description {
+	color: #DCC0A1;
+	font-family: "Italian Plate No1 Mono";
+	text-transform: uppercase;
+	font-weight: 300;
+	letter-spacing: 1px;
+}
+
+.home-template .main-header .page-title {
+	font-size: 2rem;
+}
+
+.home-template .main-header .page-description {
+	font-size: 3rem;
+	line-height: 1.1em;
+}
+
+@media only screen and (max-device-width: 736px) {
+	.home-template .main-header .page-description {
+		font-size: 2rem;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.home-template .main-header {
+		height: 100vh;
+		max-width: 800px;
+	}
+
+	.home-template .scroll-down,
+	.home-template .main-header:after {
+		display: block;
+	}
+}
+
+.home-template .latest img {
+	object-fit: cover;
+    height: 20em;
+    width: 100%;
+}
+
+.home-template .latest .post-title{
+	font-family: "Italian Plate No1 Mono";
+	font-size:1.75em;
+	color: rgba(0,0,0,0.6);
+	margin-bottom: 0;
+}
+
+.home-template .latest .post-author a {
+	color: rgba(0,0,0,0.32);
+	font-family: "Source Sans Pro";
+	font-size: 1em;
+	line-height: 23px;
+	text-decoration: none;
+	margin-bottom: 20px;
+}
+
+.home-template .latest .post-excerpt {
+	color: rgba(0,0,0,0.6);
+	font-family: "Source Sans Pro";
+	font-size: 20px;
+	line-height: 30px;
+}
+
+.home-template .latest-two article {
+	padding: 1em 0;
+}
+
+.home-template .latest-two img {
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
+}
+
+.home-template .latest-two .post-title {
+	font-family: "Italian Plate No1 Mono";
+	font-size: 21px;
+	line-height: 25px;
+}
+
+.home-template .latest-two .post-title a {
+	color: rgba(0,0,0,0.6);
+}
+
+.home-template .latest-two .post-excerpt {
+	color: rgba(0,0,0,0.6);
+	font-family: "Source Sans Pro";
+	font-size: 17px;
+	line-height: 25px;
+}
+
+.home-tempalte .latest-three .four.column {
+    padding-top: 0;
+}
+
+.home-template .latest-two.latest-three article > div {
+	padding: 10px;
+}
+
+.home-template .topics {
+	background: #202031;
+	text-align: center;
+	padding: 2em 1.5em;
+	margin-top: 1em;
+}
+
+@media only screen and (max-width: 599px) {
+	.home-template .topics {
+		display: none;
+	}
+}
+
+.home-template .topics > h2 {
+	color: rgba(255,255,255,0.85);
+	font-family: "Italian Plate No1 Mono";
+	margin:0;
+    font-weight: 300;
+}
+
+.home-template .topics .post-title {
+	margin: 0;
+}
+
+.home-template .topics .post-title a {
+	color: white;
+	font-size: 15px;
+    border-bottom: 1px solid;
+    padding-bottom: 2px;
+}
+
+.home-template .topics a {
+	color: rgba(255,255,255,0.9);
+	font-family: "Source Sans Pro";
+	text-transform: uppercase;
+}
+
+.home-template .topics .whole {
+	padding: 0;
+}
+
+.home-template .post {
+	border-bottom: 0;
+	padding: 0;
+	margin:0 auto;
+}
+
+.home-template .post::after {
+	display:none;
+}
+
+.home-template .popular {
+	background: #4E4ACB;
+	padding: 1em !important;
+    min-height: 20em;
+}
+
+.home-template .featured-nr {
+	padding-right: 5px;
+	font-size: 1.2em;
+}
+
+.home-template .popular article {
+	padding: 0px 10px;
+}
+
+.home-template .popular h2 {
+	font-family: "Italian Plate No1 Mono";
+	font-size: 1.5em;
+	text-align: center;
+    font-weight: 300;
+    color: #DCC0A1;
+    padding: 30px;
+}
+
+.home-template .popular .post-title {
+	font-family: "Source Sans Pro";
+	font-size: 0.8em;
+	margin: 0;
+}
+.home-template .popular .post:last-of-type .post-title {
+	margin-bottom: 0;
+}
+
+.home-template .popular .post-title a {
+	color: white;
+	font-size: 1em;
+    color: #DCC0A1;
+    border-bottom: 1px solid;
+    padding-bottom: 2px;
+}
+
+.home-template .popular .post-title a:hover {
+	color: white;
+}
+
+.home-template .dark-bg {
+	background-color: #202031;
+	margin-top: 2em;
+}
+
+.home-template .full-width {
+	padding:40px 0 70px 0;
+}
+
+.home-template .full-width .mere {
+	color: rgba(255,255,255,0.5);
+	font-family: "Italian Plate No1 Mono";
+	font-size: 1em;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: 300;
+}
+
+.home-template .full-width:not(.dark-bg) .mere {
+	color: rgba(0,0,0,0.5);
+}
+
+.home-template .full-width .mere-topic {
+	color: rgba(255,255,255,0.9);
+	font-family: "Italian Plate No1 Mono";
+	font-size: 2em;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: 300;
+}
+
+.home-template .full-width:not(.dark-bg) .mere-topic {
+	color: rgba(0,0,0,0.9);
+}
+
+.home-template .full-width img {
+	object-fit: cover;
+	width: 100%;
+	height: 300px;
+}
+
+.home-template .full-width article .post-title a {
+	font-family: "Italian Plate No1 Mono";
+	font-size: 1.5em;
+    line-height: 1.3em;
+    letter-spacing: 0px;
+}
+
+.home-template .full-width.dark-bg article .post-title a {
+	color: rgba(255,255,255,0.85);
+	font-family: "Italian Plate No1 Mono";
+	font-size: 1.5em;
+    line-height: 1.3em;
+    letter-spacing: 0px;
+}
+
+.home-template .full-width.dark-bg article .post-excerpt p {
+	color: rgba(255,255,255,0.75);
+	font-family: "Source Sans Pro";
+	font-size: 1em;
+}
+
+.home-template .full-width article .post-excerpt p {
+	font-family: "Source Sans Pro";
+	font-size: 1em;
+}
+
+.home-template .full-width .post-title {
+	font-size: 1em;
+}
+
+.home-template .full-width .flere {
+	padding-top: 20px;
+}
+
+.home-template .full-width .flere a {
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	width:250px;
+}
+
+/* Post */
+
+.post-template .content {
+  margin-bottom: 2em;
+}
+
+.post {
+	max-width: 900px;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+	font-family: "Italian Plate No1";
+}
+
+.post h3, .post h4, .post h5, .post h6 {
+	font-family: "Source Sans Pro", sans-serif;
+}
+
+.post h1, .post h2 {
+	font-weight: normal;
+}
+
+.post-date {
+	text-transform: none;
+	font-size: 1.7rem;
+}
+
+.post-header h2, .post-header h1 {
+  font-family: "Italian Plate No1";
+  font-weight: normal;
+  padding-top: 5px;
+  letter-spacing: 2px;
+}
+
+.post-header .post-meta {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+footer.post-meta {
+	font-size: 1.5rem;
+	font-family: "Source Sans Pro", sans-serif;
+}
+
+.post-excerpt {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.post-content {
+	font-family: "Source Sans Pro", sans-serif;
+}
+
+.post-content h2 {
+	padding-top: 1em;
+}
+
+.post-content .cta {
+	text-align: center;
+}
+
+.post-content .cta:before {
+    display: block;
+    content: "";
+    width: 30%;
+    height: 2px;
+    margin: 0 auto;
+    padding: .5em;
+    border-top: 2px solid #EEEEEE;
+}
+
+.post-content .cta:after {
+    display: block;
+    content: "";
+    width: 30%;
+    height: 2px;
+    margin: 0 auto;
+    padding: .5em;
+    border-bottom: 2px solid #EEEEEE;
+}
+
+.post-content .cta a {
+	color: #4e4acb;
+}
+
+.post-content p {
+  text-align: left;
+}
+
+.post-content table th, .post-content table td {
+  padding: 5px 2px;
+  font-size: 1.2rem;
+}
+
+@media only screen and (min-width: 900px) {
+	.post-content table th, .post-content table td {
+		padding: 5px 2px;
+		font-size: 1.5rem;
+	}
+}
+
+.post-content h6 {
+	padding: 1em 0;
+}
+
+.post-head.main-header {
+	height: 100px;
+	padding: 0;
+	min-height: 80px;
+	background: #4E4ACB no-repeat center center;
+}
+
+.post-content img {
+	max-width: 100%;
+}
+
+/* Post Footer */
+.read-next + .site-footer {
+	position: relative;
+}
+
+/* Footer */
+
+.site-footer {
+	background: #202031;
+	color: #DCC0A1;
+	margin: 0 auto;
+  margin-top: 20px;
+}
+
+.site-footer ul {
+	list-style-type: none;
+	font-family: 'Italian Plate No1 Mono', sans-serif;
+	font-size: 1.8em;
+	text-transform: uppercase;
+	padding-left: 0;
+}
+
+.site-footer ul li {
+	line-height: 1.5;
+	margin: 0;
+}
+
+@media only screen and (max-width: 979px) {
+	.site-footer .info ul li {
+		font-size: 1.3rem;
+	}
+}
+
+.site-footer a {
+	color: #DCC0A1;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+.site-footer a:hover {
+	text-decoration: none;
+	cursor: pointer;
+	border-bottom: 0;
+	color: white;
+}
+
+.site-footer .cta {
+	padding: 7rem 0;
+}
+
+.site-footer .cta p {
+	font-family: 'Italian Plate No1', sans-serif;
+	line-height: 1.25;
+	font-size: 3em;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.site-footer .cta a {
+	font-size: 1.5em;
+}
+
+.site-footer .ka img {
+	height: 6rem;
+}
+
+.site-footer .ka p {
+	text-transform: uppercase;
+	font-family: 'Italian Plate No1', sans-serif;
+	color: white;
+	font-size: 1.8rem;
+}
+
+@media only screen and (max-width: 599px) {
+	.site-footer > .offset {
+		margin: 0 auto;
+	}
+}
+
+/* Book intro CTA */
+
+.book-intro-cta {
+		background: #4E4ACB;
+		background-image: url("/assets/book-intro-cta-bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+		background-position: center;
+
+		text-align: center;
+		padding: 4em 0;
+		margin: 0 auto;
+		margin-top: 10rem;
+}
+
+.book-intro-cta p {
+	font-family: 'Italian Plate No1', sans-serif;
+	text-transform: uppercase;
+	color: #DCC0A1;
+	font-size: 2.4rem;
+
+	max-width: 80%;
+	text-align: center;
+	margin: 0 auto 1em auto;
+}
+
+/* Author */
+
+.author-image {
+	z-index: 1;
+}
+
+/* Tag */
+.main-header-content {
+	padding-bottom: 3rem;
+}
+
+/* Page */
+.page.page-all .post-header {
+	margin-bottom:0;
+}
+
+.page.page-all .post-header h2 {
+	font-size:4rem;
+	padding-top: 0;
+}
+
+.page.page-all article .four.column a img {
+    object-fit: cover;
+    width: 300px;
+    height: 200px;
+}

@@ -1,0 +1,64 @@
+{{!< default}}
+
+{{!-- The comment above "< default" means - insert everything in this file into
+    the {{{body}}} of the default.hbs template, containing the blog header/footer. --}}
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+
+<header class="main-header post-head" id="main-header">
+    <nav class="main-nav {{#if feature_image}}overlay{{/if}} clearfix">
+        {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>{{/if}}
+
+				{{!-- Include the nav links--}}
+				{{> "nav"}}
+    </nav>
+		<aside id="navicon">
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+		</aside>
+</header>
+
+<main class="content" role="main">
+    <article class="{{post_class}}">
+        <header class="post-header">
+            <h1 class="post-title">{{title}}</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}</time> {{tags prefix=" on "}}
+            </section>
+        </header>
+        {{#if feature_image}}
+        <div class="full-width">
+          <img class="full-width" src="{{img_url feature_image size="xl"}}" alt="{{title}}" />
+        </div>
+        {{/if}}
+        <section class="post-content">
+            {{content}}
+        </section>
+    </article>
+</main>
+
+{{!-- "book-intro-cta" --}}
+
+{{!-- Links to Previous/Next posts --}}
+<aside class="read-next">
+    {{#next_post}}
+    <a class="read-next-story {{#if feature_image}}" style="background-image: url({{img_url feature_image feature_image}}){{else}}no-cover{{/if}}" href="{{url}}">
+        <section class="post">
+            <h2>{{title}}</h2>
+            <p>{{excerpt words="19"}}&hellip;</p>
+        </section>
+    </a>
+    {{/next_post}}
+    {{#prev_post}}
+    <a class="read-next-story prev {{#if feature_image}}" style="background-image: url({{img_url feature_image feature_image}}){{else}}no-cover{{/if}}" href="{{url}}">
+        <section class="post">
+            <h2>{{title}}</h2>
+            <p>{{excerpt words="19"}}&hellip;</p>
+        </section>
+    </a>
+    {{/prev_post}}
+</aside>
+
+{{/post}}

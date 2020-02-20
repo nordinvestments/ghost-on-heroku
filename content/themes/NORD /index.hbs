@@ -1,0 +1,324 @@
+{{!< default}}
+{{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
+
+{{!-- The big featured header --}}
+<header id="main-header" class="main-header {{#if @site.cover_image}}" style="background-image: url({{@site.cover_image}}){{else}}no-cover{{/if}}">
+    <nav class="main-nav overlay clearfix">
+        {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>{{/if}}
+				{{!-- Include the nav links --}}
+				{{> "nav"}}
+    </nav>
+		<aside id="navicon">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </aside>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h2 class="page-title">{{@blog.title}}</h2>
+            <h1 class="page-description">{{@blog.description}}</h1>
+        </div>
+        <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+    </div>
+</header>
+
+{{!-- The main content area on the homepage --}}
+<main id="content" class="content" role="main">
+    <div class="row">
+        <div class="column seven">
+            <div class="row">
+                <div class="column twelve latest">
+                    {{#get "posts" order="published_at desc" limit="1" include="author"}}
+                        {{#foreach posts}}
+                            <article class="{{post_class}} row">
+                                <div class="column twelve">
+                                    <div class="row">
+                                        <div class="twelve column">
+                                            <a href="{{url}}"><img src="{{img_url feature_image}}" /></a>
+                                            <header class="post-header">
+                                                <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
+                                            </header>
+                                            <section class="post-author">
+                                                {{author}}
+                                            </section>
+                                            <section class="post-excerpt">
+                                                <p>{{excerpt words="50"}}... </p>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        {{/foreach}}
+                    {{/get}}
+                </div>
+            </div>
+        </div>
+        <div class="column five">
+            <div class="row">
+                <div class="column twelve popular">
+                    <h2>MEST POPULÆRE ARTIKLER LIGE NU</h2>
+                    {{#get "posts" order="published_at desc" limit="5" filter="featured:true"}}
+                        {{#foreach posts}}
+                            <article class="{{post_class}} row">
+                                <header class="post-header">
+                                    <p class="post-title"><a href="{{url}}"><span class="featured-nr">{{@number}}</span>{{title}}</a></p>
+                                </header>
+                            </article>
+                        {{/foreach}}
+                    {{/get}}
+                </div>
+            </div>
+            <div class="row topics">
+                <h2>EMNER</h2>
+                    <article class="{{post_class}} row">
+                        <div class="whole columns">
+                            <header class="post-header">
+                                    <h2 class="post-title"><a href="/tag/privatokonomi">Privatøkonomi</a></h2>
+                            </header>
+                        </div>
+                    </article>
+                    <article class="{{post_class}} row">
+                        <div class="whole columns">
+                            <header class="post-header">
+                                    <h2 class="post-title"><a href="/tag/passivinvestering">Passiv investering</a></h2>
+                            </header>
+                        </div>
+                    </article>
+                    <article class="{{post_class}} row">
+                        <div class="whole columns">
+                            <header class="post-header">
+                                    <h2 class="post-title"><a href="/tag/omkostninger">Omkostninger</a></h2>
+                            </header>
+                        </div>
+                    </article>
+                    <article class="{{post_class}} row">
+                        <div class="whole columns">
+                            <header class="post-header">
+                                    <h2 class="post-title"><a href="/tag/investering">Investering</a></h2>
+                            </header>
+                        </div>
+                    </article>
+                    <article class="{{post_class}} row">
+                        <div class="whole columns">
+                            <header class="post-header">
+                                    <h2 class="post-title"><a href="/tag/nord">NORD</a></h2>
+                            </header>
+                        </div>
+                    </article>
+            </div>
+        </div>
+    </div>
+    <div class="row latest-two latest-three">
+        {{#get "posts" order="published_at desc" limit="1" page="2" include="author"}}
+            {{#foreach posts}}
+                <article class="{{post_class}} column four">
+                    <div class="row">
+                        <div class="twelve column">
+                            <a href="{{url}}"><img src="{{img_url feature_image}}" /></a>
+                            <header class="post-header">
+                                <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
+                            </header>
+                            <section class="post-excerpt">
+                                <p>{{excerpt words="26"}}</p>
+                            </section>
+                        </div>
+                    </div>
+                </article>
+            {{/foreach}}
+        {{/get}}
+        {{#get "posts" order="published_at desc" limit="1" page="3" include="author"}}
+            {{#foreach posts}}
+                <article class="{{post_class}} column four">
+                    <div class="row">
+                        <div class="twelve column">
+                            <a href="{{url}}"><img src="{{img_url feature_image}}" /></a>
+                            <header class="post-header">
+                                <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
+                            </header>
+                            <section class="post-excerpt">
+                                <p>{{excerpt words="26"}}</p>
+                            </section>
+                        </div>
+                    </div>
+                </article>
+            {{/foreach}}
+        {{/get}}
+        {{#get "posts" order="published_at desc" limit="1" page="4" include="author"}}
+            {{#foreach posts}}
+                <article class="{{post_class}} column four">
+                    <div class="row">
+                        <div class="twelve column">
+                            <a href="{{url}}"><img src="{{img_url feature_image}}" /></a>
+                            <header class="post-header">
+                                <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
+                            </header>
+                            <section class="post-excerpt">
+                                <p>{{excerpt words="26"}}</p>
+                            </section>
+                        </div>
+                    </div>
+                </article>
+            {{/foreach}}
+        {{/get}}
+    </div>
+    <div class="row latest-two latest-three">
+        {{#get "posts" order="published_at desc" limit="1" page="5" include="author"}}
+            {{#foreach posts}}
+                <article class="{{post_class}} column four">
+                    <div class="row">
+                        <div class="twelve column">
+                            <a href="{{url}}"><img src="{{img_url feature_image}}" /></a>
+                            <header class="post-header">
+                                <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
+                            </header>
+                            <section class="post-excerpt">
+                                <p>{{excerpt words="26"}}</p>
+                            </section>
+                        </div>
+                    </div>
+                </article>
+            {{/foreach}}
+        {{/get}}
+        {{#get "posts" order="published_at desc" limit="1" page="6" include="author"}}
+            {{#foreach posts}}
+                <article class="{{post_class}} column four">
+                    <div class="row">
+                        <div class="twelve column">
+                            <a href="{{url}}"><img src="{{img_url feature_image}}" /></a>
+                            <header class="post-header">
+                                <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
+                            </header>
+                            <section class="post-excerpt">
+                                <p>{{excerpt words="26"}}</p>
+                            </section>
+                        </div>
+                    </div>
+                </article>
+            {{/foreach}}
+        {{/get}}
+        {{#get "posts" order="published_at desc" limit="1" page="7" include="author"}}
+            {{#foreach posts}}
+                <article class="{{post_class}} column four">
+                    <div class="row">
+                        <div class="twelve column">
+                            <a href="{{url}}"><img src="{{img_url feature_image}}" /></a>
+                            <header class="post-header">
+                                <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
+                            </header>
+                            <section class="post-excerpt">
+                                <p>{{excerpt words="26"}}</p>
+                            </section>
+                        </div>
+                    </div>
+                </article>
+            {{/foreach}}
+        {{/get}}
+    </div>
+    <div class="full-width dark-bg">
+        <div class="row">
+            <div class="column twelve">
+                <h3 class="mere">Mere om</h3>
+                <h2 class="mere-topic">NORD</h2>
+            </div>
+        </div>
+        <div class="row">
+            {{#get "posts" order="published_at desc" limit="2" filter="tags:nord"}}
+                {{#foreach posts}}
+                    <article class="column half">
+                        <div class="column twelve">
+                            <div class="row">
+                                <div class="twelve column">
+                                    <a href="{{url}}"><img src="{{img_url feature_image}}" /></a>
+                                    <header class="post-header">
+                                        <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
+                                    </header>
+                                    <section class="post-excerpt">
+                                        <p>{{excerpt words="26"}}</p>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                {{/foreach}}
+            {{/get}}
+        </div>
+        <div class="row flere">
+            {{#get "tags" limit="1" filter="slug:nord"}}
+                {{#foreach tags}}
+                    <a class="button button-green" href="{{url}}">Flere Artikler</a>
+                {{/foreach}}
+            {{/get}}
+        </div>
+    </div>
+    <div class="full-width">
+        <div class="row">
+            <div class="column twelve">
+                <h3 class="mere">Mere om</h3>
+                <h2 class="mere-topic">Opsparing</h2>
+            </div>
+        </div>
+        <div class="row">
+            {{#get "posts" order="published_at desc" limit="2" filter="tags:opsparing"}}
+                {{#foreach posts}}
+                    <article class="column half">
+                        <div class="column twelve">
+                            <div class="row">
+                                <div class="twelve column">
+                                    <a href="{{url}}"><img src="{{img_url feature_image}}" /></a>
+                                    <header class="post-header">
+                                        <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
+                                    </header>
+                                    <section class="post-excerpt">
+                                        <p>{{excerpt words="26"}}</p>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                {{/foreach}}
+            {{/get}}
+        </div>
+        <div class="row flere">
+            {{#get "tags" limit="1" filter="slug:opsparing"}}
+                {{#foreach tags}}
+                    <a class="button button-purple" href="{{url}}">Flere Artikler</a>
+                {{/foreach}}
+            {{/get}}
+        </div>
+    </div>
+   {{!--  <div class="full-width">
+      <div class="row">
+        <div class="column twelve">
+            <h3 class="mere">Mere om</h3>
+            <h2 class="mere-topic">ALLE</h2>
+        </div>
+      </div>
+      <div class="row flere">
+        <a class="button button-green" href="all">Flere Artikler</a>
+      </div>
+      <div>
+      {{#get "posts" order="published_at desc" limit="all"  include="author"}}
+          {{#foreach posts}}
+            <article class="{{post_class}} row">
+              <div class="four column">
+                <a href="{{url}}"><img src="{{img_url feature_image}}" /></a>
+              </div>
+              <div class="eight columns">
+                <header class="post-header">
+                  <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
+                </header>
+                <section class="post-excerpt">
+                  <p>{{excerpt words="26"}} <a class="read-more" href="{{url}}">&raquo;</a></p>
+                </section>
+                <footer class="post-meta">
+                  {{author}}
+                  {{tags prefix=" on "}}
+                  <time class="post-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}</time>
+                </footer>
+              </div>
+            </article>
+          {{/foreach}}
+        {{/get}}
+      </div>
+    </div> --}}
+</main>
