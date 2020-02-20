@@ -3,7 +3,7 @@
     "description": "NORD.investments Ghost blog theme",
     "version": "2.5.0",
     "engines": {
-        "ghost": ">=0.9.0 <1.0.0"
+        "ghost": "3.x"
     },
     "license": "MIT",
     "screenshots": {
