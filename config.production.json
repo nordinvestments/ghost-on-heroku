@@ -1,23 +1,17 @@
 {
-  "url": "process.env.HEROKU_URL",
+  "url": "https://nordblog3x.herokuapp.com/",
   "server": {
-    "port": "process.env.PORT",
-    "host": "0.0.0.0"
+    "port": 2368,
+    "host": "127.0.0.1"
   },
   "database": {
-    "client": "postgres",
-    "connection": "process.env.DATABASE_URL",
-    "debug": false
+    "client": "sqlite3",
+    "connection": {
+      "filename": "content/data/ghost-local.db"
+    }
   },
   "mail": {
-      "transport": "SMTP",
-      "options": {
-          "service": "Sendgrid",
-          "auth": {
-              "user": "process.env.SENDGRID_USERNAME",
-              "pass": "process.env.SENDGRID_PASSWORD"
-          }
-      }
+    "transport": "Direct"
   },
   "logging": {
     "transports": [
