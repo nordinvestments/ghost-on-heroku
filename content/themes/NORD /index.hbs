@@ -243,7 +243,7 @@
             {{/get}}
         </div>
         <div class="row flere">
-            {{#get "tags" limit="1" filter="slug:nord"}}
+            {{#get "tags" limit="1" filter="slug:Passivinvestering"}}
                 {{#foreach tags}}
                     <a class="button button-green" href="{{url}}">Flere Artikler</a>
                 {{/foreach}}
@@ -350,11 +350,7 @@
         {{/get}}
       </div>
       <div class="row flere">
-        {{#get "tags" limit="1" filter="slug:opsparing"}}
-        {{#foreach tags}}
-        <a class="button button-purple" href="{{url}}">Flere Artikler</a>
-        {{/foreach}}
-        {{/get}}
+        <a class="button button-purple" href="{{url/all}}">Flere Artikler</a>
       </div>
     </div>
 </main>
