@@ -218,11 +218,11 @@
         <div class="row">
             <div class="column twelve">
                 <h3 class="mere">Mere om</h3>
-                <h2 class="mere-topic">NORD</h2>
+                <h2 class="mere-topic">Passiv investering</h2>
             </div>
         </div>
         <div class="row">
-            {{#get "posts" order="published_at desc" limit="2" filter="tags:nord"}}
+            {{#get "posts" order="published_at desc" limit="2" filter="tags:Passivinvestering"}}
                 {{#foreach posts}}
                     <article class="column half">
                         <div class="column twelve">
@@ -285,5 +285,76 @@
                 {{/foreach}}
             {{/get}}
         </div>
+    </div>
+    <div class="full-width dark-bg">
+      <div class="row">
+        <div class="column twelve">
+          <h3 class="mere">Mere om</h3>
+          <h2 class="mere-topic">NORD</h2>
+        </div>
+      </div>
+      <div class="row">
+        {{#get "posts" order="published_at desc" limit="2" filter="tags:nord"}}
+        {{#foreach posts}}
+        <article class="column half">
+          <div class="column twelve">
+            <div class="row">
+              <div class="twelve column">
+                <a href="{{url}}"><img src="{{img_url feature_image}}" /></a>
+                <header class="post-header">
+                  <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
+                </header>
+                <section class="post-excerpt">
+                  <p>{{excerpt words="26"}}</p>
+                </section>
+              </div>
+            </div>
+          </div>
+        </article>
+        {{/foreach}}
+        {{/get}}
+      </div>
+      <div class="row flere">
+        {{#get "tags" limit="1" filter="slug:nord"}}
+        {{#foreach tags}}
+        <a class="button button-green" href="{{url}}">Flere Artikler</a>
+        {{/foreach}}
+        {{/get}}
+      </div>
+    </div>
+    <div class="full-width">
+      <div class="row">
+        <div class="column twelve">
+          <h2 class="mere-topic">Se alle blogindlæg</h2>
+        </div>
+      </div>
+      <div class="row">
+        {{#get "posts" order="published_at desc" limit="2"}}
+        {{#foreach posts}}
+        <article class="column half">
+          <div class="column twelve">
+            <div class="row">
+              <div class="twelve column">
+                <a href="{{url}}"><img src="{{img_url feature_image}}" /></a>
+                <header class="post-header">
+                  <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
+                </header>
+                <section class="post-excerpt">
+                  <p>{{excerpt words="26"}}</p>
+                </section>
+              </div>
+            </div>
+          </div>
+        </article>
+        {{/foreach}}
+        {{/get}}
+      </div>
+      <div class="row flere">
+        {{#get "tags" limit="1" filter="slug:opsparing"}}
+        {{#foreach tags}}
+        <a class="button button-purple" href="{{url}}">Flere Artikler</a>
+        {{/foreach}}
+        {{/get}}
+      </div>
     </div>
 </main>
