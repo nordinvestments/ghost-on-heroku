@@ -31,5 +31,8 @@
   "scripts": {
     "start": "node server.js",
     "postinstall": "bash bin/copy-themes.sh"
+  },
+  "config": {
+    "posts_per_page": 100
   }
 }
