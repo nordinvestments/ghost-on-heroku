@@ -33,8 +33,8 @@
             <p>{{excerpt words="26"}} <a class="read-more" href="{{url}}">&raquo;</a></p>
           </section>
           <footer class="post-meta">
-            {{author}}
-            {{tags prefix=" on "}}
+            {{authors.[#].name}}
+            {{tags.[#] prefix=" on "}}
             <time class="post-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}</time>
           </footer>
         </div>
