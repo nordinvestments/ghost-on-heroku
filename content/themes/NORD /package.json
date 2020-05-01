@@ -31,5 +31,8 @@
         "url": "https://github.com/nordinvestments/blog.git"
     },
     "bugs": "https://github.com/nordinvestments/blog/issues",
-    "contributors": "https://github.com/nordinvestments/blog/graphs/contributors"
+    "contributors": "https://github.com/nordinvestments/blog/graphs/contributors",
+    "config": {
+      "posts_per_page": 100
+    }
 }
