@@ -3,11 +3,10 @@
 
 <header class="main-header post-head" id="main-header">
     <nav class="main-nav {{#if feature_image}}overlay{{/if}} clearfix">
-      {{#if @blog.logo}}<a class="blog-logo" href="{{@site.url}}"><img src="{{@site.logo}}"
-          alt="{{@site.title}}" /></a>{{/if}}
+        {{#if @blog.logo}}<a class="blog-logo" href="{{@site.url}}"><img src="{{@site.logo}}" alt="{{@site.title}}" /></a>{{/if}}
 
-      {{!-- Include the nav links--}}
-      {{> "nav"}}
+        {{!-- Include the nav links--}}
+        {{> "nav"}}
     </nav>
   <aside id="navicon">
     <div class="line"></div>
@@ -18,7 +17,9 @@
       <div class="main-header-content inner">
         <h1 class="page-title">Alle blogindlæg</h1>
           <h2 class="page-description">
-            {{../pagination.total}} posts
+            {{#get "posts" limit="all"}}
+              {{posts.length}} posts
+            {{/get}}
           </h2>
       </div>
     </div>
@@ -27,26 +28,28 @@
 
 {{!-- The main content area on the all page --}}
 <main class="content" role="main">
-  {{#foreach posts}}
-  <article class="{{post_class}} row">
-    <div class="four column">
-      <a href="{{url}}"><img src="{{img_url feature_image}}" /></a>
-    </div>
-    <div class="eight columns">
-      <header class="post-header">
-        <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
-      </header>
-      <section class="post-excerpt">
-        <p>{{excerpt words="26"}} <a class="read-more" href="{{url}}">&raquo;</a></p>
-      </section>
-      <footer class="post-meta">
-        {{#if primary_author.profile_image}}<img class="author-thumb" src="{{primary_author.profile_image}}"
-          alt="{{primary_author.profile_image}}" nopin="nopin" />{{/if}}
-        {{authors}}
-        {{tags prefix=" on "}}
-        <time class="post-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}</time>
-      </footer>
-    </div>
-  </article>
-  {{/foreach}}
+  {{#get "posts" order="published_at desc" include="primary_author"}}
+    {{#foreach posts}}
+      <article class="{{post_class}} row">
+        <div class="four column">
+          <a href="{{url}}"><img src="{{img_url feature_image}}" /></a>
+        </div>
+        <div class="eight columns">
+          <header class="post-header">
+            <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
+          </header>
+          <section class="post-excerpt">
+            <p>{{excerpt words="26"}} <a class="read-more" href="{{url}}">&raquo;</a></p>
+          </section>
+          <footer class="post-meta">
+            {{#if primary_author.profile_image}}<img class="author-thumb" src="{{primary_author.profile_image}}"
+              alt="{{primary_author.profile_image}}" nopin="nopin" />{{/if}}
+            {{authors}}
+            {{tags prefix=" on "}}
+            <time class="post-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}</time>
+          </footer>
+        </div>
+      </article>
+    {{/foreach}}
+  {{/get}}
 </main>
