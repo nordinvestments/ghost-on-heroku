@@ -1,10 +1,13 @@
 routes:
-  /all/ : /all
+  /all/:
+    permalink: /all
+    template: all
 
 collections:
   /:
     permalink: /{slug}/
     template: index
+
 
 taxonomies:
   tag: /tag/{slug}/

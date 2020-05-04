@@ -14,44 +14,36 @@
     <div class="line"></div>
     <div class="line"></div>
   </aside>
+    <div>
+      <div class="main-header-content inner">
+        <h1 class="page-title">Alle blogindlæg</h1>
+      </div>
+    </div>
 </header>
 
 
 {{!-- The main content area on the all page --}}
 <main class="content" role="main">
- <div class="full-width">
-      <div class="row">
-        <div class="column twelve">
-            <h3 class="mere">Mere om</h3>
-            <h2 class="mere-topic">ALLE</h2>
+  {{#get "posts" order="published_at desc" limit="all"  include="author"}}
+    {{#foreach posts}}
+      <article class="{{post_class}} row">
+        <div class="four column">
+          <a href="{{url}}"><img src="{{img_url feature_image}}" /></a>
         </div>
-      </div>
-      <div class="row flere">
-        <a class="button button-green" href="all">Flere Artikler</a>
-      </div>
-      <div>
-      {{#get "posts" order="published_at desc" limit="all"  include="author"}}
-          {{#foreach posts}}
-            <article class="{{post_class}} row">
-              <div class="four column">
-                <a href="{{url}}"><img src="{{img_url feature_image}}" /></a>
-              </div>
-              <div class="eight columns">
-                <header class="post-header">
-                  <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
-                </header>
-                <section class="post-excerpt">
-                  <p>{{excerpt words="26"}} <a class="read-more" href="{{url}}">&raquo;</a></p>
-                </section>
-                <footer class="post-meta">
-                  {{author}}
-                  {{tags prefix=" on "}}
-                  <time class="post-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}</time>
-                </footer>
-              </div>
-            </article>
-          {{/foreach}}
-        {{/get}}
-      </div>
-  </div>
+        <div class="eight columns">
+          <header class="post-header">
+            <h2 class="post-title"><a href="{{url}}">{{title}}</a></h2>
+          </header>
+          <section class="post-excerpt">
+            <p>{{excerpt words="26"}} <a class="read-more" href="{{url}}">&raquo;</a></p>
+          </section>
+          <footer class="post-meta">
+            {{author}}
+            {{tags prefix=" on "}}
+            <time class="post-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}</time>
+          </footer>
+        </div>
+      </article>
+    {{/foreach}}
+  {{/get}}
 </main>
