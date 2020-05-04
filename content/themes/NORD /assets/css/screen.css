@@ -1274,12 +1274,12 @@ body.page-template .post-title {
 .author-head.main-header {
     height: 40vh;
     min-height: 180px;
+    background: #4E4ACB no-repeat center center;
 }
 
 .no-cover.author-head.main-header {
     height: 10vh;
     min-height: 100px;
-    background: transparent;
 }
 
 .author-profile {
