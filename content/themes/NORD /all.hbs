@@ -28,7 +28,7 @@
 
 {{!-- The main content area on the all page --}}
 <main class="content" role="main">
-  {{#get "posts" order="published_at desc" include="primary_author"}}
+  {{#get "posts" order="published_at desc" limit="all" include="primary_author"}}
     {{#foreach posts}}
       <article class="{{post_class}} row">
         <div class="four column">
